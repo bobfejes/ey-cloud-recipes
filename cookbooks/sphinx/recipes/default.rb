@@ -119,7 +119,7 @@ if utility_name
         source "sphinx.yml.erb"
         variables({
           :app_name => app_name,
-          :address => node[:ipaddress],
+          :address => node[:ipaddress], # bind util instance to its non-local ip or others can't connect
           :user => node[:owner_name],
           :mem_limit => 32
         })
