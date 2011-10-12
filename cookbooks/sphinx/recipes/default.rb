@@ -3,8 +3,9 @@
 # Recipe:: default
 #
 
-# Set your application name here
-appname = "myapp"
+# appname gets set automatically for a single app environment, if you have more than 1 app,
+# set appname explicitly to the app you want to enable sphinx for
+appname = node[:engineyard][:environment][:apps][0][:name]
 
 # Uncomment the flavor of sphinx you want to use
 #flavor = "thinking_sphinx"
