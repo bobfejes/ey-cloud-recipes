@@ -30,6 +30,11 @@ utility_name = nil
 
 cron_interval = nil #If this is not set your data will NOT be indexed
 
+# sphinx.yml config options
+enable_star = 'true'
+enable_prefix_infix = 'enable_prefix' # to disable, leave this as 'enable_prefix' and set prefix_infix_length to 0
+prefix_infix_length = 2
+
 if utility_name
 
   sphinx_host = node[:utility_instances].find do |u|
@@ -59,6 +64,9 @@ if utility_name
           :app_name => app_name,
           :address => sphinx_host,
           :user => node[:owner_name],
+          :enable_star => enable_star,
+          :enable_prefix_infix => enable_prefix_infix,
+          :prefix_infix_length => prefix_infix_length,
           :mem_limit => 32
         })
       end
@@ -121,6 +129,9 @@ if utility_name
           :app_name => app_name,
           :address => node[:ipaddress], # bind util instance to its non-local ip or others can't connect
           :user => node[:owner_name],
+          :enable_star => enable_star,
+          :enable_prefix_infix => enable_prefix_infix,
+          :prefix_infix_length => prefix_infix_length,
           :mem_limit => 32
         })
       end
@@ -223,6 +234,9 @@ else
           :app_name => app_name,
           :address => 'localhost',
           :user => node[:owner_name],
+          :enable_star => enable_star,
+          :enable_prefix_infix => enable_prefix_infix,
+          :prefix_infix_length => prefix_infix_length,
           :mem_limit => 32
         })
       end
