@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+monit_totalmem = '300 MB'
+
 if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:name] !~ /^(mongodb|redis|memcache)/)
   node[:applications].each do |app_name,data|
   
@@ -30,7 +32,8 @@ if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:na
           :app_name => app_name,
           :user => node[:owner_name],
           :worker_name => "delayed_job#{count+1}",
-          :framework_env => node[:environment][:framework_env]
+          :framework_env => node[:environment][:framework_env],
+          :totalmem => monit_totalmem
         })
       end
     end
