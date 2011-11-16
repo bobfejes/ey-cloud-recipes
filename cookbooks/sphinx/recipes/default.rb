@@ -34,6 +34,7 @@ cron_interval = nil #If this is not set your data will NOT be indexed
 enable_star = 'true'
 enable_prefix_infix = 'enable_prefix' # to disable, leave this as 'enable_prefix' and set prefix_infix_length to 0
 prefix_infix_length = 2
+sql_range_step = 1024 # sql_range_step for sphinx, as of this writing sphinx's default is 1024
 
 if utility_name
 
@@ -67,6 +68,7 @@ if utility_name
           :enable_star => enable_star,
           :enable_prefix_infix => enable_prefix_infix,
           :prefix_infix_length => prefix_infix_length,
+          :sql_range_step => sql_range_step,
           :mem_limit => 32
         })
       end
@@ -132,6 +134,7 @@ if utility_name
           :enable_star => enable_star,
           :enable_prefix_infix => enable_prefix_infix,
           :prefix_infix_length => prefix_infix_length,
+          :sql_range_step => sql_range_step,
           :mem_limit => 32
         })
       end
@@ -237,6 +240,7 @@ else
           :enable_star => enable_star,
           :enable_prefix_infix => enable_prefix_infix,
           :prefix_infix_length => prefix_infix_length,
+          :sql_range_step => sql_range_step,
           :mem_limit => 32
         })
       end

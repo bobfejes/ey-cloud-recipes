@@ -4,6 +4,7 @@
   pid_file: /var/run/sphinx/<%= @app_name %>.pid
   address: <%= @address %>
   port: 9312
+  sql_range_step: <%= @sql_range_step %>
   enable_star: <%= @enable_star %>
   <%= @enable_prefix_infix %>: <%= @prefix_infix_length %>
   mem_limit: <%= @mem_limit %>
